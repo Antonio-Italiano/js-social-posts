@@ -35,6 +35,8 @@ Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e inc
 
 // PRENDO ELEMENTI DOM 
 const cardElement = document.getElementById('container');
+const likeElement = document.getElementById('like-button');
+console.log(likeElement);
 
 // CREO L'ARRAY DI OGGETTI CHE RAPPRESENTA CIASCUN POST
 const postObjects =[  
@@ -93,7 +95,6 @@ const postObjects =[
      like: '43'},
 ]
 
-
 // CREO UN CICLO PER STAMPARE I POST CON LE INFORMAZIONI DELL'ARRAY 
 let contentCard = '';
 postObjects.forEach((element, i) => {
@@ -121,7 +122,7 @@ postObjects.forEach((element, i) => {
     <div class="post__footer">
       <div class="likes js-likes">
         <div class="likes__cta">
-          <button class="like-button js-like-button" href="#" data-postid="1">
+          <button id="like-button" class="like-button js-like-button" href="#" data-postid="1">
             <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
             <span class="like-button__label">Mi Piace</span>
           </button>
@@ -136,3 +137,11 @@ postObjects.forEach((element, i) => {
 
 // STAMPO NEL DOM 
 cardElement.innerHTML = contentCard;
+
+// CREO UN EVENTO SUL BOTTONE like
+
+likeElement.addEventListener('click', () => {
+  
+    likeElement.classList.add('clicked');
+    
+});
