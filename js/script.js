@@ -2,9 +2,9 @@
 Ricreiamo un feed social aggiungendo al layout di base fornito, il nostro script JS in cui:
 
 # Milestone 1
-Creiamo il nostro array di oggetti che rappresentano ciascun post.
-Ogni post dovrà avere le informazioni necessarie per stampare la relativa card:
-- id del post, numero progressivo da 1 a n
+Creiamo il nostro array di oggetti che rappresentano ciascun post.                FATTO ♣
+Ogni post dovrà avere le informazioni necessarie per stampare la relativa card:   FATTO ♣
+- id del post, numero progressivo da 1 a n                                        FATTO ♣
 - nome autore,
 - foto autore (potrebbe mancare a qualcuno),
 - data in formato americano (mm-gg-yyyy),
@@ -30,5 +30,63 @@ Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e inc
  Prima scriviamo nei commenti la logica in italiano e poi traduciamo in codice.
  console.log() è nostro amico.
  Quando un pezzo di codice funziona, chiediamoci se possiamo scomporlo in funzioni più piccole. */
+
+
+// CREO L'ARRAY DI OGGETTI CHE RAPPRESENTA CIASCUN POST
+const postObjects =[  
+    {
+     id: 1,
+     name: 'Alberto Giorgianni',  
+     profilePicture:  'alberto-giorgianni.jpg',   
+     date: '12-21-2022',
+     text: 'La mia nuova casa si trova in posto magnifico',   
+     postImg: 'picture-1.jpg', 
+     like: '13'},
+
+    {
+     id: 2,
+     name: 'Angela Veronesi',     
+     profilePicture:  'angela-veronesi.jpg',      
+     date: '12-20-2022',
+     text: 'Paesaggio Mozzafiato',                           
+     postImg: 'picture-2.jpg', 
+     like: '43'},
+
+    {
+     id: 3,
+     name: 'Lorenzo Franceschini',
+     profilePicture:  'lorenzo-franceschini.jpg', 
+     date: '12-18-2022',
+     text: 'La mia nuova macchina',                           
+     postImg: 'picture-3.jpg', 
+     like: '18'},
+
+    {
+     id: 4,
+     name: 'Luca Bartolini',      
+     profilePicture:  'luca-bartolini.jpg',       
+     date: '12-15-2022',
+     text: 'Il vulcano più bello del mondo',                 
+     postImg: 'picture-4.jpg', 
+     like: '158'},
+
+    {
+     id: 5,
+     name: 'Renato Caruso',       
+     profilePicture:  'renato-caruso.jpg',        
+     date: '12-10-2022',
+     text: 'Il corso Boolean è molto bello',                 
+     postImg: '',              
+     like: '31'},
+     
+    {
+     id: 6,
+     name: 'Sharon Baiocca',       
+     profilePicture:  'sharon-baiocca.jpg',       
+     date: '12-07-2022',
+     text: 'Oggi è una bella giornata per andare in vacanza', 
+     postImg: '',              
+     like: '43'},
+]
 
 
