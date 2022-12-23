@@ -32,6 +32,10 @@ Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e inc
  Quando un pezzo di codice funziona, chiediamoci se possiamo scomporlo in funzioni più piccole. */
 
 
+
+// PRENDO ELEMENTI DOM 
+const cardElement = document.getElementById('container');
+
 // CREO L'ARRAY DI OGGETTI CHE RAPPRESENTA CIASCUN POST
 const postObjects =[  
     {
