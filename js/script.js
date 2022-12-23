@@ -35,8 +35,6 @@ Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e inc
 
 // PRENDO ELEMENTI DOM 
 const cardElement = document.getElementById('container');
-const likeElement = document.getElementById('like-button');
-console.log(likeElement);
 
 // CREO L'ARRAY DI OGGETTI CHE RAPPRESENTA CIASCUN POST
 const postObjects =[  
@@ -45,16 +43,16 @@ const postObjects =[
      name: 'Alberto Giorgianni',  
      profilePicture:  'alberto-giorgianni.jpg',   
      date: '12-21-2022',
-     text: 'La mia nuova casa si trova in posto magnifico',   
+     text: 'La mia nuova casa si trova in un posto magnifico.',   
      postImg: 'picture-1.jpg', 
      like: '13'},
-
+    
     {
      id: 2,
      name: 'Angela Veronesi',     
      profilePicture:  'angela-veronesi.jpg',      
      date: '12-20-2022',
-     text: 'Paesaggio Mozzafiato',                           
+     text: 'Paesaggio Mozzafiato.',                           
      postImg: 'picture-2.jpg', 
      like: '43'},
 
@@ -63,85 +61,106 @@ const postObjects =[
      name: 'Lorenzo Franceschini',
      profilePicture:  'lorenzo-franceschini.jpg', 
      date: '12-18-2022',
-     text: 'La mia nuova macchina',                           
+     text: 'La mia nuova macchina.',                           
      postImg: 'picture-3.jpg', 
      like: '18'},
-
+     
     {
-     id: 4,
-     name: 'Luca Bartolini',      
-     profilePicture:  'luca-bartolini.jpg',       
-     date: '12-15-2022',
-     text: 'Il vulcano più bello del mondo',                 
-     postImg: 'picture-4.jpg', 
-     like: '158'},
-
+    id: 4,
+    name: 'Luca Bartolini',      
+    profilePicture:  'luca-bartolini.jpg',       
+    date: '12-15-2022',
+    text: 'Il vulcano più bello del mondo.',                 
+    postImg: 'picture-4.jpg', 
+    like: '158'},
+    
     {
-     id: 5,
-     name: 'Renato Caruso',       
-     profilePicture:  'renato-caruso.jpg',        
-     date: '12-10-2022',
-     text: 'Il corso Boolean è molto bello',                 
-     postImg: '',              
-     like: '31'},
+    id: 5,
+    name: 'Renato Caruso',       
+    profilePicture:  'renato-caruso.jpg',        
+    date: '12-10-2022',
+    text: 'Il corso Boolean è molto bello.',                 
+    postImg: '',              
+    like: '31'},
      
     {
      id: 6,
      name: 'Sharon Baiocca',       
      profilePicture:  'sharon-baiocca.jpg',       
      date: '12-07-2022',
-     text: 'Oggi è una bella giornata per andare in vacanza', 
+     text: 'Oggi è una bella giornata per andare in vacanza.', 
      postImg: '',              
      like: '43'},
 ]
 
 // CREO UN CICLO PER STAMPARE I POST CON LE INFORMAZIONI DELL'ARRAY 
 let contentCard = '';
-postObjects.forEach((element, i) => {
+for(let i = 0; i < postObjects.length; i++){
 
     contentCard += `
          
     <div class="post">
-     <div class="post__header">
-      <div class="post-meta">
-        <div class="post-meta__icon">
-          <img class="profile-pic" src="img/${element.profilePicture}" alt="${element.name}" />
+        <div class="post__header">
+            <div class="post-meta">
+                <div class="post-meta__icon">
+                    <img class="profile-pic" src="img/${postObjects[i].profilePicture}" alt="${postObjects[i].name}" />
+                </div>
+                <div class="post-meta__data">
+                    <div class="post-meta__author">${postObjects[i].name}</div>
+                    <div class="post-meta__time">${postObjects[i].date}</div>
+                </div>
+            </div>
         </div>
-        <div class="post-meta__data">
-          <div class="post-meta__author">${element.name}</div>
-          <div class="post-meta__time">${element.date}</div>
+        <div class="post__text"> ${postObjects[i].text}</div>                              
+        <div class="post__image">
+            <img src="img/${postObjects[i].postImg}" alt="" />
         </div>
-      </div>
-    </div>
-    <div class="post__text">
-    ${element.text}
-    </div>
-    <div class="post__image">
-      <img src="img/${element.postImg}" alt="" />
-    </div>
-    <div class="post__footer">
-      <div class="likes js-likes">
-        <div class="likes__cta">
-          <button id="like-button" class="like-button js-like-button" href="#" data-postid="1">
-            <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
-            <span class="like-button__label">Mi Piace</span>
-          </button>
+        <div class="post__footer">
+            <div class="likes js-likes">
+            <div class="likes__cta">
+                <button id="like-button" class="like-button js-like-button" href="#" data-postid="1">
+                    <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                    <span class="like-button__label">Mi Piace</span>
+                </button>
+            </div>
+            <div class="likes__counter">Piace a <b id="like-counter-${postObjects[i].id}" class="js-likes-counter">${postObjects[i].like}</b> persone</div>
+            </div>
         </div>
-        <div class="likes__counter">Piace a <b id="like-counter-1" class="js-likes-counter">${element.like}</b> persone</div>
-      </div>
     </div>
-  </div>
           
-    `;
-});
+    `,``
+};
 
-// STAMPO NEL DOM 
 cardElement.innerHTML = contentCard;
 
-// CREO UN EVENTO SUL BOTTONE like
 
-likeElement.addEventListener('click', () => {
-  
-    likeElement.classList.add('clicked');
+
+const likeButtons = document.querySelectorAll('button');
+
+for (let i = 0; i < postObjects.length; i++){
+    const button = likeButtons[i];
     
-});
+    const counter = document.getElementById(`like-counter-${i+1}`);
+    console.log(counter);
+
+    let isLiked = false;
+    button.addEventListener('click', function(){
+        
+    isLiked = !isLiked;
+    const numb = parseInt(postObjects[i].like);
+    let increment;
+
+        if(isLiked) {
+        button.classList.add('like-button--liked');
+        increment = numb +1;
+
+        } else{
+            button.classList.remove('like-button--liked');
+            increment = numb;
+
+        }
+        
+
+        counter.innerHTML = increment;
+    })
+}

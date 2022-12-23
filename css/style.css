@@ -123,7 +123,7 @@ h1 {
 
 .like-button--liked {
   color: #0cd977;
-  cursor: default;
+  /* cursor: default; */
 }
 
 .post-meta__icon img {
