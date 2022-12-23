@@ -126,3 +126,8 @@ h1 {
   cursor: default;
 }
 
+.post-meta__icon img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
